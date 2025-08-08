@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brownian Motion Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Brownian Motion Simulator</h1>
+  </header>
+  <!--
+    This simple web application demonstrates Brownian motion — the random
+    movement of particles suspended in a fluid.  The simulation is based
+    on the mathematical model that the increments of a Brownian motion
+    over a time interval are normally distributed with mean 0 and
+    variance equal to the length of the interval【623170445017917†L65-L104】.
+    Collisions between fast‑moving molecules impart random kicks to the
+    particle, leading to an erratic path【772155142125148†L207-L214】.
+  -->
+
+  <!-- Introductory section with instructions and mathematical context -->
+  <section id="intro">
+    <h2>About this app</h2>
+    <p>
+      This simulator demonstrates <strong>Brownian motion</strong>, a fundamental
+      stochastic process in physics and mathematics. Brownian motion models
+      the random movement of particles suspended in a fluid, and it provides
+      the building block for many advanced concepts in statistical mechanics,
+      probability theory and financial mathematics. Mathematically, the
+      increments of a Brownian path over disjoint time intervals are
+      independent and normally distributed with mean 0 and variance equal
+      to the length of the interval. This property makes Brownian motion
+      the continuous‑time analogue of a random walk and leads to the
+      diffusion equation and Wiener process that underpin stochastic calculus.
+    </p>
+    <p>
+      To explore, choose a number of simulation steps and a time increment
+      Δt below, then click <em>Simulate</em>. The app will draw
+      a two‑dimensional Brownian path starting from the centre of the canvas
+      and report basic statistics such as the final displacement and mean
+      squared displacement. By adjusting Δt and the number of
+      steps, you can observe how the path becomes rougher and more widely
+      spread as total time increases. This experiment highlights the
+      fundamental result that the mean displacement tends to zero while
+      the variance grows linearly with elapsed time.
+    </p>
+  </section>
+  <main>
+    <form id="bm-form">
+      <label>
+        Number of steps:
+        <input type="number" id="steps" value="1000" min="1" />
+      </label>
+      <label>
+        Time increment (dt):
+        <input
+          type="number"
+          id="dt"
+          value="0.01"
+          step="0.001"
+          min="0"
+        />
+      </label>
+      <button type="submit">Simulate</button>
+    </form>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <section id="results"></section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
